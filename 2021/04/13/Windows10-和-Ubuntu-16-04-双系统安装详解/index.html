@@ -1,0 +1,255 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Windows10 和 Ubuntu 16.04 双系统安装详解 | Xmaiger's Blog</title><meta name="keywords" content="Linux,Ubuntu,双系统"><meta name="author" content="Xmagicer"><meta name="copyright" content="Xmagicer"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="准备材料： U盘（容量&gt;8G）、UltraISO刻录软件、Ubuntu 16.04镜像文件  一、Ubuntu系统空间准备在Windows 10中打开“磁盘管理器”，找一个空闲的磁盘分区，压缩出来一部分空间给Ubuntu使用，压缩出来的硬盘应处于未分配状态。或者通过删除某个不使用的本地磁盘使其处于未分配状态。  绿色框中是留给Ubuntu的空间  注意： （1）如果想学习Linux的话，留">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Windows10 和 Ubuntu 16.04 双系统安装详解">
+<meta property="og:url" content="https://xmagicer.github.io/2021/04/13/Windows10-%E5%92%8C-Ubuntu-16-04-%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E8%AF%A6%E8%A7%A3/index.html">
+<meta property="og:site_name" content="Xmaiger&#39;s Blog">
+<meta property="og:description" content="准备材料： U盘（容量&gt;8G）、UltraISO刻录软件、Ubuntu 16.04镜像文件  一、Ubuntu系统空间准备在Windows 10中打开“磁盘管理器”，找一个空闲的磁盘分区，压缩出来一部分空间给Ubuntu使用，压缩出来的硬盘应处于未分配状态。或者通过删除某个不使用的本地磁盘使其处于未分配状态。  绿色框中是留给Ubuntu的空间  注意： （1）如果想学习Linux的话，留">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://user-images.githubusercontent.com/15977179/79682024-74195300-8251-11ea-9036-d6ae3f52dfff.png">
+<meta property="article:published_time" content="2021-04-13T19:59:00.000Z">
+<meta property="article:modified_time" content="2021-04-13T12:34:33.198Z">
+<meta property="article:author" content="Xmagicer">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Ubuntu">
+<meta property="article:tag" content="双系统">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://user-images.githubusercontent.com/15977179/79682024-74195300-8251-11ea-9036-d6ae3f52dfff.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://xmagicer.github.io/2021/04/13/Windows10-%E5%92%8C-Ubuntu-16-04-%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E8%AF%A6%E8%A7%A3/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script async="async" src="https://www.googletagmanager.com/gtag/js?id=UA-134934318-1"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'UA-134934318-1');
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-04-13 12:34:33'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">2</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">2</div></a></div></div></div><hr/></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://user-images.githubusercontent.com/15977179/79682024-74195300-8251-11ea-9036-d6ae3f52dfff.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Xmaiger's Blog</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Windows10 和 Ubuntu 16.04 双系统安装详解</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2021-04-13T19:59:00.000Z" title="Created 2021-04-13 19:59:00">2021-04-13</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2021-04-13T12:34:33.198Z" title="Updated 2021-04-13 12:34:33">2021-04-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Linux/">Linux</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Linux/Ubuntu/">Ubuntu</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Windows10 和 Ubuntu 16.04 双系统安装详解"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+<p>准备材料：</p>
+<p>U盘（容量&gt;8G）、UltraISO刻录软件、Ubuntu 16.04镜像文件</p>
+</blockquote>
+<h1 id="一、Ubuntu系统空间准备"><a href="#一、Ubuntu系统空间准备" class="headerlink" title="一、Ubuntu系统空间准备"></a>一、Ubuntu系统空间准备</h1><p>在Windows 10中打开“磁盘管理器”，找一个空闲的磁盘分区，压缩出来一部分空间给Ubuntu使用，压缩出来的硬盘应处于未分配状态。或者通过删除某个不使用的本地磁盘使其处于未分配状态。</p>
+<p><img src="https://user-images.githubusercontent.com/15977179/79681994-5b10a200-8251-11ea-959a-14e0395193eb.png" alt="img"></p>
+<p>绿色框中是留给Ubuntu的空间</p>
+<blockquote>
+<p>注意：</p>
+<p>（1）如果想学习Linux的话，留给Ubuntu使用的空间建议大于40G。</p>
+<p>（2）这里是一整个未分配空间，这样可以在安装Ubuntu的时候直接选择和Windows共存安装，自动分配空间，不用自己再给系统分区设置大小了。</p>
+</blockquote>
+<h1 id="二、制作Ubuntu-16-04启动盘"><a href="#二、制作Ubuntu-16-04启动盘" class="headerlink" title="二、制作Ubuntu 16.04启动盘"></a>二、制作Ubuntu 16.04启动盘</h1><p>1.插入用来制作启动盘的U盘（会被格式化，请备份好重要文件），打开UltraISO刻录软件（免费无限期试用）。</p>
+<p><img src="https://user-images.githubusercontent.com/15977179/79681997-606dec80-8251-11ea-9140-0f8ea7ab8bf9.png" alt="img"></p>
+<p>UltraISO</p>
+<p>2.选择“文件(F)”-&gt;“打开”，找到“Ubuntu-16.04-desktop-amd64.iso”镜像文件，然后点击“打开”。</p>
+<p><img src="https://user-images.githubusercontent.com/15977179/79681998-61068300-8251-11ea-8f63-ce87870f3170.png" alt="img"></p>
+<p>打开镜像文件</p>
+<p>3.选择“启动(B)”-&gt;“写入硬盘映像”，打开启动盘制作界面。</p>
+<p><img src="https://user-images.githubusercontent.com/15977179/79681999-6237b000-8251-11ea-868f-1de79885d966.png" alt="img"></p>
+<p>制作启动盘</p>
+<p>4.然后点击下方的“写入”，会弹出警告提示，确定后，就会开始制作启动盘。写入完成后关闭UltraISO软件即可。</p>
+<p><img src="https://user-images.githubusercontent.com/15977179/79682000-6237b000-8251-11ea-9899-e908ee1ed055.png" alt="img"></p>
+<p>启动盘即将制作完成</p>
+<blockquote>
+<p>建议：USB3.0的U盘写入速度大约是USB2.0的10倍，推荐使用USB3.0接口的U盘。</p>
+</blockquote>
+<h1 id="三、BIOS设置"><a href="#三、BIOS设置" class="headerlink" title="三、BIOS设置"></a>三、BIOS设置</h1><p>1.关机，重新打开电脑，进入BIOS，关闭Windows系统的快速启动（Fast Boot）选项，即设置为Disable状态。</p>
+<p><img src="https://user-images.githubusercontent.com/15977179/79682001-62d04680-8251-11ea-802e-c9cc0d5bca64.png" alt="img"></p>
+<p>关闭Windows的快速启动</p>
+<p>2.在BIOS中设置U盘为第一启动项，关闭电脑。</p>
+<blockquote>
+<p>（有些电脑可以在开机之前先按住“Esc“，在开机可以直接打开UEFI开机启动选择界面，这一步可以查查自己电脑的方法）。</p>
+</blockquote>
+<h1 id="四、安装Ubuntu-16-04"><a href="#四、安装Ubuntu-16-04" class="headerlink" title="四、安装Ubuntu 16.04"></a>四、安装Ubuntu 16.04</h1><p>1.从U盘启动，进入刻录到U盘的Ubuntu系统中。</p>
+<blockquote>
+<p>说明：这一步选择”Try ubuntu“或者”Install Ubuntu”均可，都可进入试用Ubuntu界面。</p>
+</blockquote>
+<p>2.选择试用Ubuntu，稍等一会，进入Ubuntu Desktop。</p>
+<p><img src="https://user-images.githubusercontent.com/15977179/79682002-6532a080-8251-11ea-99e4-91ec96dd9743.png" alt="img"></p>
+<p>Ubuntu Desktop</p>
+<p>3.双击左上角的”Install Ubuntu 16.04LTS“，打开安装界面。（安装过程比较简单，根据提示输入一些信息即可）</p>
+<p>A：在左侧语言栏选择安装语言，然后点击“继续”。</p>
+<p><img src="https://user-images.githubusercontent.com/15977179/79682003-65cb3700-8251-11ea-9830-9efce9f21cc0.png" alt="img"></p>
+<p>点击”继续“</p>
+<p>B：如果网速比较快，可以勾选“安装Ubuntu时下载更新”。（如果选择的语言是中文，这里在更新的时候会自动安装中文输入法，当然也可以安装完成后安装搜狗拼音输入法Linux版）</p>
+<p><img src="https://user-images.githubusercontent.com/15977179/79682004-66fc6400-8251-11ea-90b5-a41b9ea8e33f.png" alt="img"></p>
+<p>点击”继续“</p>
+<p><img src="https://user-images.githubusercontent.com/15977179/79682006-6794fa80-8251-11ea-9d55-294a387b9b84.png" alt="img"></p>
+<p>注意！</p>
+<p>C：在硬盘中Ubuntu检测到有Windows系统存在，所以会默认使用未分配的那部分空间安装Ubuntu。这也是刚开始说的方便之处，避免了自己分区的不合理。</p>
+<blockquote>
+<p>注意：如果第一项中没有‘与其它系统共存’这个明确提示，请务必选择最后一个‘其他选项’，然后手动分区。不然，你的硬盘就可能被格式化了（ 虽然不一定是坏事，如果不慎把硬盘格式化了，那就……体会一下“断、舍、离”的奥～Ծ.Ծ～义）</p>
+</blockquote>
+<p>接下来会有提示信息。</p>
+<p><img src="https://user-images.githubusercontent.com/15977179/79682007-682d9100-8251-11ea-984b-06b77a7a8bf1.png" alt="img"></p>
+<p>点击“继续”</p>
+<p>D：输入自己的位置以配置时区。</p>
+<p><img src="https://user-images.githubusercontent.com/15977179/79682008-68c62780-8251-11ea-963c-cfe41703c4f9.png" alt="img"></p>
+<p>然后“继续”</p>
+<p>E：键盘布局默认就可以。</p>
+<p><img src="https://user-images.githubusercontent.com/15977179/79682010-69f75480-8251-11ea-89ae-2e0749300112.png" alt="img"></p>
+<p>“点击”继续</p>
+<p>F：输入账户信息和密码。</p>
+<p><img src="https://user-images.githubusercontent.com/15977179/79682012-6a8feb00-8251-11ea-92b5-0dd80b0cdb5d.png" alt="img"></p>
+<p>“继续”</p>
+<p>G：接下来下载更新，自动安装。</p>
+<p><img src="https://user-images.githubusercontent.com/15977179/79682013-6b288180-8251-11ea-8331-a3154692e856.png" alt="img"></p>
+<p><img src="https://user-images.githubusercontent.com/15977179/79682014-6cf24500-8251-11ea-8d06-5550c0598b04.png" alt="img"></p>
+<p>H：安装完成之后重启。</p>
+<p><img src="https://user-images.githubusercontent.com/15977179/79682015-6d8adb80-8251-11ea-8176-c0d66200ed9c.png" alt="img"></p>
+<p>完成</p>
+<p>I：重启之后会进入Ubuntu的Grub2引导界面，默认启动Ubuntu，等待时间是10s。（用上下方向键进行选择）</p>
+<blockquote>
+<p>更改启动项顺序的问题将会在以后的文章中给出。</p>
+<p>本次启动过程在Grub引导项中可能没有windows的启动项了，进入Ubuntu执行sudo update-grub更新一下启动项就可以了。</p>
+</blockquote>
+<h1 id="五、安装后的配置"><a href="#五、安装后的配置" class="headerlink" title="五、安装后的配置"></a>五、安装后的配置</h1><p>1.安装搜狗拼音输入法</p>
+<p><img src="https://user-images.githubusercontent.com/15977179/79682017-6e237200-8251-11ea-8c4d-94f97b7d904a.png" alt="img"></p>
+<p>下载Deb安装包，双击运行</p>
+<p><img src="https://user-images.githubusercontent.com/15977179/79682019-6fed3580-8251-11ea-9ccf-995bd5066cfc.png" alt="img"></p>
+<p>点击”安装“</p>
+<p><img src="https://user-images.githubusercontent.com/15977179/79682021-724f8f80-8251-11ea-80d0-9f1d80513d10.png" alt="img"></p>
+<p>输入账户密码</p>
+<blockquote>
+<p>切换中英文输入法的方式是“Ctrl+空格键”。</p>
+</blockquote>
+<p>2.安装“Unity Tweak Tool”（美化调整Ubuntu用）</p>
+<p>A：在Ubuntu的软件中心搜索“tweak tool”</p>
+<p><img src="https://user-images.githubusercontent.com/15977179/79682022-72e82600-8251-11ea-8ad5-4459ff32d4c2.png" alt="img"></p>
+<p>安装第二个</p>
+<p>B：安装过程同上，读者可以先自己尝试着调整一下。</p>
+<blockquote>
+<p>关于主题更改和美化以后会专门写一篇哒~</p>
+</blockquote>
+<h1 id="六、目标效果"><a href="#六、目标效果" class="headerlink" title="六、目标效果"></a>六、目标效果</h1><p>最后给大家看一下终极效果</p>
+<p><img src="https://user-images.githubusercontent.com/15977179/79682024-74195300-8251-11ea-9036-d6ae3f52dfff.png" alt="img"></p>
+<p><img src="https://user-images.githubusercontent.com/15977179/79682025-77acda00-8251-11ea-8d29-c5d651d84f95.png" alt="img"></p>
+<p><img src="https://user-images.githubusercontent.com/15977179/79682027-7a0f3400-8251-11ea-9851-b3b9a901afe1.png" alt="img"></p>
+<p><img src="https://user-images.githubusercontent.com/15977179/79682029-7b406100-8251-11ea-9727-dd1ffcbb6412.png" alt="img"></p>
+<h1 id="七、美化系列"><a href="#七、美化系列" class="headerlink" title="七、美化系列"></a>七、美化系列</h1><p><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/5445064c9ab0">Ubuntu超级美化及工具介绍(一)</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/35268174983c">Ubuntu美化之主题篇(二)</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/c80ce3cc3b30">Ubuntu超级美化之启动篇(三)</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.jianshu.com/p/65a0c7462022">Ubuntu美化之中级篇(四)</a></p>
+<p><em>〔 * 不做伸手党，从点赞开始 * 〕</em></p>
+<p><img src="https://user-images.githubusercontent.com/15977179/79682031-7d0a2480-8251-11ea-81eb-fca23c71def8.jpeg" alt="img"></p>
+<p>欢迎关注公众号</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="mailto:undefined">Xmagicer</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://xmagicer.github.io/2021/04/13/Windows10-%E5%92%8C-Ubuntu-16-04-%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E8%AF%A6%E8%A7%A3/">https://xmagicer.github.io/2021/04/13/Windows10-%E5%92%8C-Ubuntu-16-04-%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E8%AF%A6%E8%A7%A3/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux/">Linux</a><a class="post-meta__tags" href="/tags/Ubuntu/">Ubuntu</a><a class="post-meta__tags" href="/tags/%E5%8F%8C%E7%B3%BB%E7%BB%9F/">双系统</a></div><div class="post_share"><div class="social-share" data-image="https://user-images.githubusercontent.com/15977179/79682024-74195300-8251-11ea-9036-d6ae3f52dfff.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/04/13/hello-world/"><img class="next-cover" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">Hello World</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Xmagicer</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">2</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">2</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81Ubuntu%E7%B3%BB%E7%BB%9F%E7%A9%BA%E9%97%B4%E5%87%86%E5%A4%87"><span class="toc-number">1.</span> <span class="toc-text">一、Ubuntu系统空间准备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%88%B6%E4%BD%9CUbuntu-16-04%E5%90%AF%E5%8A%A8%E7%9B%98"><span class="toc-number">2.</span> <span class="toc-text">二、制作Ubuntu 16.04启动盘</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81BIOS%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.</span> <span class="toc-text">三、BIOS设置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%AE%89%E8%A3%85Ubuntu-16-04"><span class="toc-number">4.</span> <span class="toc-text">四、安装Ubuntu 16.04</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%AE%89%E8%A3%85%E5%90%8E%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-number">5.</span> <span class="toc-text">五、安装后的配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E7%9B%AE%E6%A0%87%E6%95%88%E6%9E%9C"><span class="toc-number">6.</span> <span class="toc-text">六、目标效果</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E7%BE%8E%E5%8C%96%E7%B3%BB%E5%88%97"><span class="toc-number">7.</span> <span class="toc-text">七、美化系列</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/04/13/Windows10-%E5%92%8C-Ubuntu-16-04-%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E8%AF%A6%E8%A7%A3/" title="Windows10 和 Ubuntu 16.04 双系统安装详解"><img src="https://user-images.githubusercontent.com/15977179/79682024-74195300-8251-11ea-9036-d6ae3f52dfff.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Windows10 和 Ubuntu 16.04 双系统安装详解"/></a><div class="content"><a class="title" href="/2021/04/13/Windows10-%E5%92%8C-Ubuntu-16-04-%E5%8F%8C%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E8%AF%A6%E8%A7%A3/" title="Windows10 和 Ubuntu 16.04 双系统安装详解">Windows10 和 Ubuntu 16.04 双系统安装详解</a><time datetime="2021-04-13T19:59:00.000Z" title="Created 2021-04-13 19:59:00">2021-04-13</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/04/13/hello-world/" title="Hello World"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2021/04/13/hello-world/" title="Hello World">Hello World</a><time datetime="2021-04-13T12:34:33.198Z" title="Created 2021-04-13 12:34:33">2021-04-13</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Xmagicer</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
